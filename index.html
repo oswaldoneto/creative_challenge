@@ -4,44 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desafio de Criação</title>
-    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>" />
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <h1 class="title">Desafio de Criação</h1>
-        <p class="subtitle">Setup IA Ready: Playlists, Estrutura e Mini-Identidade</p>
-      </header>
-
-      <div class="main-content">
-        <aside class="sidebar">
-          <div class="enunciado-content" id="enunciado-content"></div>
-        </aside>
-
-        <main class="chat-container">
-          <div class="chat-messages" id="chat-messages"></div>
-          <div class="chat-input-container">
-            <div class="input-wrapper">
-              <input
-                type="text"
-                id="chat-input"
-                class="chat-input"
-                placeholder="Digite sua mensagem..."
-                disabled
-              />
-              <button id="next-button" class="next-button">Próximo</button>
-            </div>
-            <p class="input-message">
-              Após executar no LLM, volte para a plataforma e clique em
-              <strong>Próximo passo</strong>.
-            </p>
-          </div>
-        </main>
-      </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="src/app.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-

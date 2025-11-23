@@ -6,44 +6,105 @@ Página web interativa para o desafio "Setup IA Ready: Playlists, Estrutura e Mi
 
 ```
 creative_challenge/
-├── index.html          # Página principal
+├── index.html              # Página principal HTML
+├── package.json            # Dependências do projeto
+├── vite.config.js          # Configuração do Vite
+├── Makefile                # Comandos do projeto
 ├── src/
-│   ├── app.js          # Lógica da aplicação
-│   └── styles.css      # Estilos da página
-├── md_files/           # Arquivos markdown com conteúdo
+│   ├── main.jsx            # Ponto de entrada React
+│   ├── App.jsx             # Componente principal
+│   └── components/         # Componentes React
+│       ├── Header.jsx      # Cabeçalho com navegação e status
+│       ├── Sidebar.jsx     # Painel esquerdo com enunciado
+│       ├── ChatContainer.jsx # Container do chat
+│       ├── ChatMessage.jsx # Componente de mensagem
+│       └── CodeBlock.jsx   # Bloco de código com botão copiar
+├── md_files/               # Arquivos markdown com conteúdo
 │   ├── enunciado.md
 │   └── step_1.md até step_7.md
 └── README.md
 ```
 
+## Tecnologias
+
+- **React 18** - Framework frontend
+- **Material-UI (MUI)** - Biblioteca de componentes
+- **Vite** - Build tool e dev server
+- **React Markdown** - Renderização de markdown
+- **Emotion** - CSS-in-JS (requerido pelo MUI)
+
 ## Como Usar
 
-1. Abra o arquivo `index.html` em um navegador moderno
-2. A página carregará automaticamente:
-   - O enunciado do desafio no lado esquerdo
-   - O primeiro passo do desafio no chat (lado direito) com efeito de digitação
-3. Clique em "Próximo" para avançar para os próximos passos
-4. Cada passo será exibido com uma mensagem aleatória do usuário simulada
-5. No último passo, o botão mudará para "Enviar" e o campo de input será habilitado
-6. Os snippets de código podem ser copiados clicando no botão "Copiar"
+### Instalação
+
+```bash
+make setup
+# ou
+npm install
+```
+
+### Desenvolvimento
+
+```bash
+make dev
+# ou
+npm run dev
+```
+
+O servidor de desenvolvimento será iniciado em `http://localhost:3000`
+
+### Build para Produção
+
+```bash
+make build
+# ou
+npm run build
+```
+
+### Preview da Build
+
+```bash
+make preview
+# ou
+npm run preview
+```
 
 ## Funcionalidades
 
-- ✅ Layout responsivo com duas colunas
+- ✅ Layout responsivo com duas colunas (baseado na imagem de referência)
+- ✅ Header com navegação, feedback e indicadores de status (XP, Nível, Corações)
+- ✅ Painel esquerdo com enunciado do desafio
+- ✅ Painel direito com interface tipo ChatGPT (fundo escuro)
 - ✅ Efeito de digitação tipo ChatGPT
 - ✅ Renderização de markdown com suporte a código
-- ✅ Botão de copiar código nos snippets
+- ✅ Blocos de código com botão "Copiar código"
 - ✅ Navegação sequencial pelos passos
 - ✅ Mensagens aleatórias do usuário entre passos
 - ✅ Input habilitado apenas no último passo
+- ✅ Botão muda de "Próximo" para "Enviar" no último passo
 
-## Requisitos
+## Comandos Disponíveis
 
-- Navegador moderno com suporte a ES6+
-- Servidor HTTP local (recomendado) ou abrir diretamente o arquivo HTML
+- `make setup` - Instala dependências
+- `make dev` - Inicia servidor de desenvolvimento
+- `make build` - Gera build de produção
+- `make preview` - Preview da build de produção
+- `make lint` - Executa linter
+- `make fmt` - Formata código com Prettier
+
+## Estrutura de Componentes
+
+A aplicação segue uma arquitetura componentizada:
+
+- **App.jsx**: Componente raiz que gerencia estado global
+- **Header.jsx**: Cabeçalho com informações de navegação e status
+- **Sidebar.jsx**: Painel esquerdo exibindo o enunciado do desafio
+- **ChatContainer.jsx**: Container principal do chat que gerencia steps e mensagens
+- **ChatMessage.jsx**: Componente individual de mensagem (usuário ou assistente)
+- **CodeBlock.jsx**: Componente para exibir e copiar snippets de código
 
 ## Notas
 
-- Os arquivos markdown são carregados via `fetch`, então é necessário usar um servidor HTTP local ou abrir via `file://` (pode ter limitações de CORS)
-- Para desenvolvimento local, pode-se usar: `python -m http.server 8000` ou `npx serve`
-
+- Os arquivos markdown são carregados via `fetch` durante a execução
+- O Vite serve os arquivos estáticos da pasta `md_files/` automaticamente
+- O layout foi desenvolvido para ser o mais próximo possível da imagem de referência

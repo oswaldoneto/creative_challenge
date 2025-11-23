@@ -1,8 +1,9 @@
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, IconButton } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-function Sidebar({ content }) {
+function Sidebar({ content, onToggle }) {
   return (
     <Paper
       elevation={0}
@@ -11,11 +12,27 @@ function Sidebar({ content }) {
         backgroundColor: '#1e1e1e',
         borderRadius: 0,
         overflow: 'auto',
-        p: 4,
+        position: 'relative',
       }}
     >
+      <IconButton
+        onClick={onToggle}
+        sx={{
+          position: 'absolute',
+          top: 8,
+          right: 8,
+          color: '#d4d4d4',
+          zIndex: 1,
+          '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          },
+        }}
+      >
+        <ChevronLeftIcon />
+      </IconButton>
       <Box
         sx={{
+          p: 4,
           maxWidth: '100%',
           '& h1': {
             fontSize: '1.5rem',
@@ -65,4 +82,3 @@ function Sidebar({ content }) {
 }
 
 export default Sidebar;
-

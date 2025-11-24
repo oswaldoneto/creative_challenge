@@ -19,9 +19,10 @@ creative_challenge/
 │       ├── ChatContainer.jsx # Container do chat
 │       ├── ChatMessage.jsx # Componente de mensagem
 │       └── CodeBlock.jsx   # Bloco de código com botão copiar
-├── md_files/               # Arquivos markdown com conteúdo
-│   ├── enunciado.md
-│   └── step_1.md até step_7.md
+├── public/
+│   └── assets/             # Arquivos markdown com conteúdo
+│       ├── enunciado.md
+│       └── step_0.md até step_8.md
 └── README.md
 ```
 
@@ -106,5 +107,5 @@ A aplicação segue uma arquitetura componentizada:
 ## Notas
 
 - Os arquivos markdown são carregados via `fetch` durante a execução
-- O Vite serve os arquivos estáticos da pasta `md_files/` automaticamente
+- O Vite serve os arquivos estáticos da pasta `public/assets/` automaticamente
 - O layout foi desenvolvido para ser o mais próximo possível da imagem de referência

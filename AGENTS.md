@@ -3,7 +3,8 @@
 ## Project Structure & Module Organization
 - `src/` for application code grouped by domain; shared helpers in `src/shared`.
 - Tests live in `tests/` mirroring `src/` (`src/auth/login.ts` -> `tests/auth/login.spec.ts`); fixtures go in `tests/fixtures/`.
-- Helper scripts belong in `scripts/` (executable, shellcheck-friendly). `docs/` holds ADRs/notes. Put static assets in `assets/`.
+- Helper scripts belong in `scripts/` (executable, shellcheck-friendly). `docs/` holds ADRs/notes.
+- Coloque assets estáticos (incluindo os arquivos markdown consumidos pelo app) em `public/assets/` para que o Vite os sirva automaticamente.
 
 ## Build, Test, and Development Commands
 - Prefer a `Makefile` or `justfile` as the entry point:
